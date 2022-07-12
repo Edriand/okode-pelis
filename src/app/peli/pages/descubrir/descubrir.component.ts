@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
 import { Result } from '../../interfaces/peli-interface';
 import { PeliService } from '../../services/peli.service';
 
@@ -14,8 +13,7 @@ export class DescubrirComponent {
   last: number = 1;
   pages: boolean = false;
 
-  constructor(private peliService: PeliService,
-              private router: Router) {
+  constructor(private peliService: PeliService) {
     this.pageOne();
   }
  
@@ -63,9 +61,5 @@ export class DescubrirComponent {
     }
     else
       this.pageOne();
-  }
-
-  route(id: number): void {
-    this.router.navigateByUrl(`/peli/${id}`);
-  }
+  } 
 }

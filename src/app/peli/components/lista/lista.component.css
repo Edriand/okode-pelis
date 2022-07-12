@@ -1,0 +1,8 @@
+li {
+	cursor: pointer;
+}
+
+li:hover {
+	background-color: #0D6EFD;
+	color: white;
+}

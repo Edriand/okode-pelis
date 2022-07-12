@@ -6,8 +6,7 @@ import { PeliService } from '../../services/peli.service';
 
 @Component({
   selector: 'app-ver-peli',
-  templateUrl: './ver-peli.component.html',
-  styleUrls: ['./ver-peli.component.css']
+  templateUrl: './ver-peli.component.html'
 })
 export class VerPeliComponent implements OnInit {
   public peli !: Result;

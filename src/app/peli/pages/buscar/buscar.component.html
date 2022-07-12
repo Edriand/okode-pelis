@@ -1,1 +1,38 @@
-<p>buscar works!</p>
+<h1> Buscar películas por nombre </h1>
+
+<hr>
+
+<div class="row">
+	<div class="col">
+		<app-buscador 	(onEnter)="Buscar( $event )"
+						(onDebounce)="sugerencias( $event )"
+						[buscador]="'Por nombre...'"></app-buscador>
+	</div>
+</div>
+
+<ul *ngIf="mostrar"
+    class="list-group">
+    <li class="list-group-item list-group-item-action"
+        *ngFor="let peli of pelisSugeridas">
+        <a  class="nav-link"
+            [routerLink]="['/peli', peli.id]"> 
+			{{ peli.title }}
+        </a>
+    </li>
+
+    <li class="list-group-item list-group-item-action" (click)="onClick( termino )">
+        <a class="nav-link"> <strong> Buscar {{ termino }} </strong> </a> 
+    </li>
+</ul>
+
+<hr>
+
+<div *ngIf="hayError" class="alert alert-danger">
+    No se encontró nada con el termino "{{ termino }}".
+</div>
+
+<div *ngIf="pelis.length > 0" class="row">
+    <div class="col">
+        <app-lista [pelis]="pelis"></app-lista>
+    </div>
+</div>

@@ -14,11 +14,16 @@ export class PeliService {
 
   descubrirPelis(page: string): Observable<Pelis> {
     const url = `${this.apiUrl}/discover/movie?page=${page}&sort_by=popularity.desc&api_key=${this.apiKey}`;
-    return this.http.get<Pelis>(url)
+    return this.http.get<Pelis>(url);
   }
 
   getPeliPorId(id: string): Observable<Result> {
     const url = `${this.apiUrl}/movie/${id}?api_key=${this.apiKey}`;
     return this.http.get<Result>(url);
+  }
+
+  getPeliPorNombre(name: string): Observable<Pelis> {
+    const url = `${this.apiUrl}/search/movie?query=${name}&api_key=${this.apiKey}`;
+    return this.http.get<Pelis>(url)
   }
 }

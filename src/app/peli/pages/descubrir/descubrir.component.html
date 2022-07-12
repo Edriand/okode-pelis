@@ -2,19 +2,10 @@
 
 <hr>
 
-<ul *ngIf="pelis.length > 0; else void"
-	class="list-group mb-2">
-	<li *ngFor="let peli of pelis;index as i"
-		class="list-group-item"
-		(click)="route(peli.id)">
-		{{ (i+1) + ((actual-1)*20)}} - {{ peli.title }}
-	</li>
-</ul>
+<!-- Componente lista -->
+<app-lista *ngIf="pelis.length > 0" [pelis]="pelis" [actual]="actual"></app-lista>
 
-<ng-template #void>
-	<span><b> Cargando Películas </b></span>
-</ng-template>
-
+<!-- Flechas con input -->
 <div *ngIf="pages" class="d-flex justify-content-center mb-2">
 	<!-- Left Arrow -->  
 	<svg (click)="pageLeft()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-4" viewBox="0 0 16 16">
