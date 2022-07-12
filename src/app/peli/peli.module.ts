@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DescubrirComponent } from './pages/descubrir/descubrir.component';
+import { BuscarComponent } from './pages/buscar/buscar.component';
+import { VerPeliComponent } from './pages/ver-peli/ver-peli.component';
 
 
 
 @NgModule({
   declarations: [
-    DescubrirComponent
+    DescubrirComponent,
+    BuscarComponent,
+    VerPeliComponent
   ],
   imports: [
     CommonModule

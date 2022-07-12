@@ -1,8 +1,16 @@
-li {
+li, svg {
 	cursor: pointer;
 }
 
 li:hover {
 	background-color: #0D6EFD;
 	color: white;
+}
+
+svg {
+	color: #0D6EFD;
+}
+
+input {
+	width: 70px;
 }

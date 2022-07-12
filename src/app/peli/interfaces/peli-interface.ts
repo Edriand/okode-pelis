@@ -20,8 +20,15 @@ export interface Result {
     video:             boolean;
     vote_average:      number;
     vote_count:        number;
+    spoken_languages:  SpokenLanguage[];
 }
 
 export enum OriginalLanguage {
     En = "en",
 } 
+
+export interface SpokenLanguage {
+    english_name: string;
+    iso_639_1:    string;
+    name:         string;
+}
