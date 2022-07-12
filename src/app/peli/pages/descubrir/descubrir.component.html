@@ -1,0 +1,11 @@
+<h1> ¿Conocías cuáles son las películas más populares? </h1>
+
+<hr>
+
+<ul *ngIf="pelis.length > 0"
+	class="list-group mb-4">
+	<li *ngFor="let peli of pelis;index as i"
+		class="list-group-item">
+		{{ i+1 }} - {{ peli.title }}
+	</li>
+</ul>
