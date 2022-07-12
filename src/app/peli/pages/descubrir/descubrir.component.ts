@@ -9,15 +9,15 @@ import { PeliService } from '../../services/peli.service';
 })
 export class DescubrirComponent {
   pelis: Result[] = [];
-  actual: number = 0;
-  last: number = 1;
-  pages: boolean = false;
+  actual  = 0;
+  last    = 1;
+  pages   = false;
 
   constructor(private peliService: PeliService) {
     this.pageOne();
   }
  
-  pageOne(): void {
+  pageOne() {
     this.peliService.descubrirPelis('1')
       .subscribe( resp => {
         this.pelis = resp.results;
@@ -28,7 +28,7 @@ export class DescubrirComponent {
       });
   }
 
-  pageRight(): void {
+  pageRight() {
     if (this.actual === this.last) this.actual = 0;
 
     this.peliService.descubrirPelis(`${this.actual+1}`)
@@ -38,7 +38,7 @@ export class DescubrirComponent {
       });
   }
 
-  pageLeft(): void {
+  pageLeft() {
     if (this.actual === 1) this.actual = 501;
 
     this.peliService.descubrirPelis(`${this.actual-1}`)
@@ -48,7 +48,7 @@ export class DescubrirComponent {
       });
   }
 
-  pageSearch(page: any): void {
+  pageSearch(page: any) {
     let nPage = page.target.value;  
     
     if( nPage > 0 && nPage <= this.last )

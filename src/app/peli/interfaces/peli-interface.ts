@@ -24,7 +24,7 @@ export interface Result {
 }
 
 export enum OriginalLanguage {
-    En = "en",
+    En = 'en',
 } 
 
 export interface SpokenLanguage {

@@ -9,11 +9,11 @@ import {Result} from '../../interfaces/peli-interface';
 })
 export class ListaComponent {
   @Input() pelis: Result[] = [];
-  @Input() actual: number = 1;
+  @Input() actual = 1;
 
   constructor(private router: Router) { } 
   
-  route(id: number): void {
+  route(id: number) {
     this.router.navigateByUrl(`/peli/${id}`);
   }
 }

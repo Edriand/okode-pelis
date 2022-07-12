@@ -7,14 +7,14 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './buscador.component.html'
 })
 export class BuscadorComponent implements OnInit {
-  @Output() onEnter: EventEmitter<string> = new EventEmitter();
+  @Output() onEnter   : EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
-  @Input() buscador: string = '';
+  @Input() buscador = '';
 
   debouncer: Subject<string> = new Subject();
-  termino: string = '';
+  termino = '';
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.debouncer.pipe(
       debounceTime(300)
     ).subscribe( valor => {
@@ -22,7 +22,7 @@ export class BuscadorComponent implements OnInit {
     } );
   }
 
-  Buscar(): void {
+  Buscar() {
     this.onEnter.emit( this.termino );
   }
 

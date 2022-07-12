@@ -14,7 +14,7 @@ export class VerPeliComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private peliService: PeliService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.activatedRoute.params
     .pipe(
       switchMap(({ id }) => this.peliService.getPeliPorId(id))

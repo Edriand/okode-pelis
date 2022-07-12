@@ -8,15 +8,15 @@ import { PeliService } from '../../services/peli.service';
   styleUrls: ['./buscar.component.css']
 })
 export class BuscarComponent {
-  termino:string = '';
-  hayError: boolean = false;
-  pelis: Result[] = [];
+  pelis         : Result[] = [];
   pelisSugeridas: Result[] = [];
-  mostrar: boolean = false;
-
+  termino   = '';
+  hayError  = false;
+  mostrar   = false;
+  
   constructor(private peliService: PeliService) { }
 
-  Buscar( s: string ): void {
+  Buscar( s: string ) {
     this.hayError = false;
     this.termino = s;
     this.mostrar = false;
@@ -31,7 +31,7 @@ export class BuscarComponent {
     });
   }
 
-  sugerencias(t: string): void {
+  sugerencias(t: string) {
     this.hayError = false;
     this.termino = t;
     this.mostrar = true;
@@ -40,11 +40,12 @@ export class BuscarComponent {
     .subscribe( pelis => this.pelisSugeridas = pelis.results.splice(0,5),
     (err) => {
       this.pelisSugeridas = []
+      this.hayError = true;
       console.log(err);
     });
   }
 
-  onClick(termino: string): void {
+  onClick(termino: string) {
     this.Buscar( termino );
   }
 }

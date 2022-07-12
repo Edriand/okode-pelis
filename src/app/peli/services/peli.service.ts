@@ -1,29 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Pelis, Result } from '../interfaces/peli-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeliService {
-  private apiUrl: string = "https://api.themoviedb.org/3";
-  private apiKey: string = "70a03f52abfefb3fafeca054c00c5932";
 
   constructor(private http: HttpClient) { }
 
-  descubrirPelis(page: string): Observable<Pelis> {
-    const url = `${this.apiUrl}/discover/movie?page=${page}&sort_by=popularity.desc&api_key=${this.apiKey}`;
-    return this.http.get<Pelis>(url);
+  descubrirPelis(page: string) {
+    return this.http.get<Pelis>(`${environment.apiUrl}/discover/movie?page=${page}&sort_by=popularity.desc&api_key=${environment.apiKey}`);
   }
 
-  getPeliPorId(id: string): Observable<Result> {
-    const url = `${this.apiUrl}/movie/${id}?api_key=${this.apiKey}`;
-    return this.http.get<Result>(url);
+  getPeliPorId(id: string) {
+    return this.http.get<Result>(`${environment.apiUrl}/movie/${id}?api_key=${environment.apiKey}`);
   }
 
-  getPeliPorNombre(name: string): Observable<Pelis> {
-    const url = `${this.apiUrl}/search/movie?query=${name}&api_key=${this.apiKey}`;
-    return this.http.get<Pelis>(url)
+  getPeliPorNombre(name: string) {
+    return this.http.get<Pelis>(`${environment.apiUrl}/search/movie?query=${name}&api_key=${environment.apiKey}`);
   }
 }
