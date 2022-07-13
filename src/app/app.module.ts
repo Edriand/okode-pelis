@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
-import {PeliModule} from './peli/peli.module';
+import { MovieModule } from './movie/movie.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import {PeliModule} from './peli/peli.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    PeliModule,
+    MovieModule,
     SharedModule
   ],
   providers: [],

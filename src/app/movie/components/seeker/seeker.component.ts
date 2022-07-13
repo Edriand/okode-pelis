@@ -3,30 +3,30 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-buscador',
-  templateUrl: './buscador.component.html'
+  selector: 'app-seeker',
+  templateUrl: './seeker.component.html'
 })
-export class BuscadorComponent implements OnInit {
+export class SeekerComponent implements OnInit {
   @Output() onEnter   : EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
-  @Input() buscador = '';
+  @Input() seeker = '';
 
   debouncer: Subject<string> = new Subject();
-  termino = '';
+  term = '';
 
   ngOnInit() {
     this.debouncer.pipe(
       debounceTime(300)
-    ).subscribe( valor => {
-      this.onDebounce.emit( valor );
+    ).subscribe(value => {
+      this.onDebounce.emit(value);
     } );
   }
 
-  Buscar() {
-    this.onEnter.emit( this.termino );
+  search() {
+    this.onEnter.emit(this.term);
   }
 
-  teclaPresionada() {
-    this.debouncer.next( this.termino );
+  keyPressed() {
+    this.debouncer.next(this.term);
   }
 }

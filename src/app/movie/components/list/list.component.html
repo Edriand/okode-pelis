@@ -1,0 +1,14 @@
+<ul *ngIf="movies.length > 0; else void"
+	class="list-group mb-2">
+	<li *ngFor="let movie of movies;index as i"
+		class="list-group-item"
+		(click)="route(movie.id)">
+		{{ (i+1) + ((actual-1)*20)}} - {{ movie.title }}
+	</li>
+</ul>
+
+<ng-template #void>
+	<div class="alert alert-info">
+		<span><b> Loading Movies </b></span>
+	</div>
+</ng-template>

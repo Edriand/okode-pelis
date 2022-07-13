@@ -1,0 +1,33 @@
+<div *ngIf="!movie; else divMovie" class="alert alert-info">
+	Getting Movie
+</div>
+
+<ng-template #divMovie>
+	<div class="row">
+		<div class="col-12">
+			<h1> {{ movie.title }} </h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 col-md-4">
+			<h3> Poster </h3>
+			<img class="img-fluid" src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}">
+		</div>
+
+		<div class="col">
+			<div class="row"> 
+				<h3 class="mt-4 mt-sm-0" > Overview </h3>
+				<p> {{ movie.overview }} </p>
+			</div>	
+			<div class="row"> 
+				<h3> Release date </h3>
+				<p> {{ movie.release_date }} </p>
+			</div>
+			<div class="row mb-4"> 
+				<h3> Spoken languages </h3>
+				<li *ngFor="let language of movie.spoken_languages"> {{ language.english_name }} </li>
+			</div>
+		</div>	
+	</div>
+</ng-template>

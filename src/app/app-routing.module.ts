@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BuscarComponent } from './peli/pages/buscar/buscar.component';
-import { DescubrirComponent } from './peli/pages/descubrir/descubrir.component';
-import { VerPeliComponent } from './peli/pages/ver-peli/ver-peli.component';
+import { SearchComponent } from './movie/pages/search/search.component';
+import { DiscoverComponent } from './movie/pages/discover/discover.component';
+import { ShowMovieComponent } from './movie/pages/show-movie/show-movie.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DescubrirComponent
+    component: DiscoverComponent
   },
   {
-    path: 'buscar',
-    component: BuscarComponent 
+    path: 'search',
+    component: SearchComponent 
   },
   {
-    path: 'peli/:id',
-    component: VerPeliComponent 
+    path: 'movie/:id',
+    component: ShowMovieComponent 
   },
   {
     path: '**',
